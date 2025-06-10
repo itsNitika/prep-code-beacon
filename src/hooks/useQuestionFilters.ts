@@ -11,6 +11,9 @@ interface Question {
   frequency: string;
   platform: string;
   question: string;
+  role: string;
+  link: string;
+  source: string;
 }
 
 interface Filters {
