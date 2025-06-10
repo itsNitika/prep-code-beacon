@@ -155,13 +155,13 @@ const mockQuestions = [
 
 const Index = () => {
   const [filters, setFilters] = useState({
-    company: "",
-    topic: "",
-    difficulty: "",
-    round: "",
-    recency: "",
-    frequency: "",
-    platform: ""
+    company: "all",
+    topic: "all",
+    difficulty: "all",
+    round: "all",
+    recency: "all",
+    frequency: "all",
+    platform: "all"
   });
   
   const [searchTerm, setSearchTerm] = useState("");
@@ -171,13 +171,13 @@ const Index = () => {
     return mockQuestions.filter((q) => {
       const matchesSearch = q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
                            q.company.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCompany = !filters.company || q.company === filters.company;
-      const matchesTopic = !filters.topic || q.topic.some(t => t === filters.topic);
-      const matchesDifficulty = !filters.difficulty || q.difficulty === filters.difficulty;
-      const matchesRound = !filters.round || q.round === filters.round;
-      const matchesRecency = !filters.recency || q.recency === filters.recency;
-      const matchesFrequency = !filters.frequency || q.frequency === filters.frequency;
-      const matchesPlatform = !filters.platform || q.platform === filters.platform;
+      const matchesCompany = filters.company === "all" || q.company === filters.company;
+      const matchesTopic = filters.topic === "all" || q.topic.some(t => t === filters.topic);
+      const matchesDifficulty = filters.difficulty === "all" || q.difficulty === filters.difficulty;
+      const matchesRound = filters.round === "all" || q.round === filters.round;
+      const matchesRecency = filters.recency === "all" || q.recency === filters.recency;
+      const matchesFrequency = filters.frequency === "all" || q.frequency === filters.frequency;
+      const matchesPlatform = filters.platform === "all" || q.platform === filters.platform;
 
       return matchesSearch && matchesCompany && matchesTopic && matchesDifficulty && 
              matchesRound && matchesRecency && matchesFrequency && matchesPlatform;
@@ -190,13 +190,13 @@ const Index = () => {
 
   const clearFilters = () => {
     setFilters({
-      company: "",
-      topic: "",
-      difficulty: "",
-      round: "",
-      recency: "",
-      frequency: "",
-      platform: ""
+      company: "all",
+      topic: "all",
+      difficulty: "all",
+      round: "all",
+      recency: "all",
+      frequency: "all",
+      platform: "all"
     });
     setSearchTerm("");
   };

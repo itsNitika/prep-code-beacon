@@ -44,7 +44,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
   const frequencyOptions = ["High", "Medium", "Low"];
   const platforms = [...new Set(questions.map(q => q.platform))].sort();
 
-  const activeFiltersCount = Object.values(filters).filter(Boolean).length;
+  const activeFiltersCount = Object.values(filters).filter(value => value && value !== "all").length;
 
   return (
     <Card className="sticky top-4">
@@ -78,7 +78,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Companies" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Companies</SelectItem>
+              <SelectItem value="all">All Companies</SelectItem>
               {companies.map((company) => (
                 <SelectItem key={company} value={company}>
                   {company}
@@ -95,7 +95,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Topics" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Topics</SelectItem>
+              <SelectItem value="all">All Topics</SelectItem>
               {topics.map((topic) => (
                 <SelectItem key={topic} value={topic}>
                   {topic}
@@ -112,7 +112,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Difficulties" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Difficulties</SelectItem>
+              <SelectItem value="all">All Difficulties</SelectItem>
               {difficulties.map((difficulty) => (
                 <SelectItem key={difficulty} value={difficulty}>
                   {difficulty}
@@ -129,7 +129,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Rounds" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Rounds</SelectItem>
+              <SelectItem value="all">All Rounds</SelectItem>
               {rounds.map((round) => (
                 <SelectItem key={round} value={round}>
                   {round}
@@ -146,7 +146,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Time" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Time</SelectItem>
+              <SelectItem value="all">All Time</SelectItem>
               {recencyOptions.map((recency) => (
                 <SelectItem key={recency} value={recency}>
                   {recency}
@@ -163,7 +163,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Frequencies" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Frequencies</SelectItem>
+              <SelectItem value="all">All Frequencies</SelectItem>
               {frequencyOptions.map((frequency) => (
                 <SelectItem key={frequency} value={frequency}>
                   {frequency}
@@ -180,7 +180,7 @@ export const FilterPanel = ({ filters, onFilterChange, onClearFilters, questions
               <SelectValue placeholder="All Platforms" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Platforms</SelectItem>
+              <SelectItem value="all">All Platforms</SelectItem>
               {platforms.map((platform) => (
                 <SelectItem key={platform} value={platform}>
                   {platform}
