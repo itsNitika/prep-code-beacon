@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
@@ -99,20 +98,18 @@ const Auth = () => {
     <div className="min-h-screen bg-gradient-to-br from-pink-400 via-pink-300 to-coral-400 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl bg-white rounded-3xl shadow-2xl overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
-          {/* Left side - Illustration */}
+          {/* Left side - Text and decorative elements only */}
           <div className="relative bg-gradient-to-br from-slate-600 via-slate-700 to-slate-800 flex items-center justify-center p-8">
             {/* Decorative elements */}
             <div className="absolute top-8 left-8 w-12 h-12 bg-coral-400 rounded-full opacity-20"></div>
             <div className="absolute bottom-16 right-12 w-8 h-8 bg-blue-400 rounded-full opacity-30"></div>
             <div className="absolute top-1/3 right-8 w-6 h-6 bg-pink-300 rounded-full opacity-25"></div>
             
-            {/* Main illustration area */}
+            {/* Main content area */}
             <div className="relative z-10 text-center">
-              <img 
-                src="/lovable-uploads/3ed7bcd1-d93a-4818-adb1-7a7aa8d5a20f.png" 
-                alt="Welcome illustration" 
-                className="w-80 h-80 object-contain mx-auto mb-6"
-              />
+              <div className="w-80 h-80 flex items-center justify-center mx-auto mb-6 bg-slate-600/20 rounded-full">
+                <div className="text-6xl text-coral-400">🚀</div>
+              </div>
               <h2 className="text-white text-2xl font-bold mb-2">Welcome to InterviewPrepHub</h2>
               <p className="text-slate-300 text-lg">Master your next technical interview</p>
             </div>
